@@ -7,9 +7,25 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.A101Page;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class TestCase {
+
+    /**
+     Uçtan uca ödeme ekranına kadar Selenium'da java dili ile chrome browser kullanarak test otomasyon ödevi yapılacak.
+     Ödeme ekranı doldurulmayacak. Aşağıdaki senaryoyu web ve mobil olmak üzere 2 çeşit oluşturabilirlerse çok iyi olur. En az Web'de yapmak zorunlu.
+     - Senaryoya üye kaydı oluşturmadan devam edilecek.
+     - Giyim--> Aksesuar--> Kadın İç Giyim-->Dizaltı Çorap bölümüne girilir.
+     - Açılan ürünün siyah olduğu doğrulanır.
+     - Sepete ekle butonuna tıklanır.
+     - Sepeti Görüntüle butonuna tıklanır.
+     - Sepeti Onayla butonuna tıklanır.
+     - Üye olmadan devam et butonuna tıklanır.
+     - Mail ekranı gelir.
+     - Sonrasında adres ekranı gelir. Adres oluştur dedikten sonra ödeme ekranı gelir.
+     - Siparişi tamamla butonuna tıklayarak, ödeme ekranına gidildiği ,doğru ekrana yönlendiklerini kontrol edecekler.
+     */
 
     @Test
     public void test01() throws InterruptedException {
@@ -18,17 +34,9 @@ public class TestCase {
         Actions actions=new Actions(Driver.getDriver());
         Faker faker=new Faker();
 
-        /*
-        Test Case'de spesifik bir framework belirtilmedigi icin bu otomasyon testi TestNG frameworkunde kosuldu.
-        Istenilmesi halinde JUnit veya Cucumber frameworklerinde de ayni test gerceklestirilip teslim edilebilir.
-        Verilen Test Case'e birebir bagli kalinarak tum gorevler bastan sona olmak uzere gerceklestirildi.
-        Dogrulama adimlarinin heman alt satirlarinda System.out.println() methodu ile dogrulanmasi istenen olgu konsolda yazdirildi.
-        Kisisel verilen korunmasi kanunu geregi isim, soyisim, mail adresi, telefon numarasi vb. bilgilerin goruntulenmemesi adina 'Faker' kutuphanesi kullanildi
-        Bir kac yerde internet baglantisindan kaynakli olarak testin failed olmamasi adina Thread.sleep kullanildi.
-         */
 
         // Kullanici "https://a101.com.tr" sayfasina gider
-        Driver.getDriver().get("https://a101.com.tr");
+        Driver.getDriver().get(ConfigReader.getProperty("a101Url"));
 
         // Cookies kabul edilir
         a101Page.acceptCookies.click();
