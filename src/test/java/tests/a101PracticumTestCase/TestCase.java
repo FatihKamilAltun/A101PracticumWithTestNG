@@ -1,4 +1,4 @@
-package tests.a101PractiucumTestCase;
+package tests.a101PracticumTestCase;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
